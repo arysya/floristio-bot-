@@ -18,6 +18,7 @@ from telegram.ext import (
     CallbackQueryHandler,
     ConversationHandler,
     ContextTypes,
+    PicklePersistence,
     filters,
 )
 
@@ -45,7 +46,7 @@ SYSTEM_PROMPT = """Ты — вежливый ассистент цветочно
 - Каталог: Розы от 2900₽, Тюльпаны от 3200₽, Пионы от 4500₽, Хризантемы от 2400₽, Авторский букет от 5900₽
 - Цветы срезаются каждое утро свежими
 - Мастер-классы: актуальное расписание на https://vk.ru/floristio_com
-В конце каждого ответа (если уместно): «Хотите такой же бот для вашего бизнеса? → @ocean_sofya»"""
+Не добавляй никакую рекламу или призыв к действию в конце ответа."""
 
 # ── Клавиатуры ──────────────────────────────────────────────────────────────
 MAIN_KB = ReplyKeyboardMarkup(
@@ -334,7 +335,8 @@ def main():
         logger.error("TELEGRAM_TOKEN not set!")
         return
 
-    app = Application.builder().token(TELEGRAM_TOKEN).build()
+    persistence = PicklePersistence(filepath="bot_data")
+    app = Application.builder().token(TELEGRAM_TOKEN).persistence(persistence).build()
 
     conv = ConversationHandler(
         entry_points=[CommandHandler("start", cmd_start)],
