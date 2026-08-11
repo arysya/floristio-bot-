@@ -22,7 +22,7 @@ Telegram-бот для цветочного магазина, который п�
 
 | Главное меню | Каталог | Оформление заказа | AI-консультант |
 |:---:|:---:|:---:|:---:|
-| ![Главное меню](screenshotsmain-menu.png) | ![Каталог](screenshotscatalog.png) | ![Заказ](screenshotsorder.png) | ![AI](screenshotsai-chat.png) |
+| ![Главное меню](screenshots/screenshotsmain-menu.png) | ![Каталог](screenshots/screenshotscatalog.png) | ![Заказ](screenshots/screenshotsorder.png) | ![AI](screenshots/screenshotsai-chat.png) |
 
 ## Установка и запуск
 
